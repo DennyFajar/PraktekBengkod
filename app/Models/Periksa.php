@@ -2,25 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Periksa extends Model {
-    use HasFactory;
+class periksa extends Model
+{
+    protected $fillable = [
+        'id_pasien',
+        'id_pasien',
+        'tgl_periksa',
+        'catatan',
+        'biaya_periksa',
 
-    protected $fillable = ['id_pasien', 'id_dokter', 'tgl_periksa', 'catatan', 'biaya_periksa'];
 
-    public function pasien(): BelongsTo {
-        return $this->belongsTo(User::class, 'id_pasien');
+    ];
+
+    public function pasien()
+    {
+        return $this->belongsTo(User::class,'id_pasien');
     }
-
-    public function dokter(): BelongsTo {
-        return $this->belongsTo(User::class, 'id_dokter');
+    public function dokter()
+    {
+        return $this->belongsTo(User::class,'id_dokter');
     }
-
-    public function detailPeriksa(): HasMany {
-        return $this->hasMany(DetailPeriksa::class, 'id_periksa');
-    }
+    // public function detailPeriksa()
+    // {
+    //     return $this->hasMany(DetailPeriksa::class,'id_periksa');
+    // }
 }

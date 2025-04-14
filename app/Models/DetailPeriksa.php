@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,3 +19,4 @@ class DetailPeriksa extends Model {
         return $this->belongsTo(Obat::class, 'id_obat');
     }
 }
+

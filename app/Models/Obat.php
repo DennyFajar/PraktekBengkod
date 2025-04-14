@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,3 +14,4 @@ class Obat extends Model {
         return $this->hasMany(DetailPeriksa::class, 'id_obat');
     }
 }
+
